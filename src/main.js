@@ -13,6 +13,7 @@ $(document).ready(function() {
     event.preventDefault();
     const abvLevel = $('input[name=abv]:checked').val();
     const jokeLevel = $('input[name=joke]:checked').val();
+    $('.showImage').text(" ");
     let beer = new Beer(abvLevel);
 
 
@@ -30,6 +31,8 @@ $(document).ready(function() {
       getElements(jsonifiedResponse[randomNumber]);
     })();
 
+
+  setInterval(() => {
     const getElements2 = function(response2) {
       if(response2.joke){
         $('.showJoke').text(`${response2.joke}`);
@@ -46,5 +49,6 @@ $(document).ready(function() {
       getElements2(jsonifiedResponse2);
     })();
 
+    document.getElementById("beers").reset();
   });
 });
